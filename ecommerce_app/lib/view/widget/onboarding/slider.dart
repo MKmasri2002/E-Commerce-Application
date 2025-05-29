@@ -1,13 +1,19 @@
+import 'package:ecommerce_app/controler/onboardingcontroller.dart';
 import 'package:ecommerce_app/core/constant/appColor.dart';
 import 'package:ecommerce_app/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class SliderOnBoarding extends StatelessWidget {
+class SliderOnBoarding extends GetView<OnBoardingControllerImp> {
   const SliderOnBoarding({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+      controller: controller.pageController,
+      onPageChanged: (val) {
+        controller.onPageChanged(val);
+      },
       itemCount: onBoardingList.length,
       itemBuilder:
           (context, i) => Column(
